@@ -58,7 +58,7 @@ h2 {
 }
 
 .logo img {
-    height: 55px;
+    height: 40px;
 }
 
 nav {
@@ -68,14 +68,14 @@ nav {
 
 header {
     height: 50px;
+    background: #000;
 }
-
 section, header {
     border-bottom: 1px solid #95d4e7;
 }
 
 section, header, footer {
-    padding: 5px 20px;
+    padding: 15px 20px;
 }
 
 ul li, nav li {
