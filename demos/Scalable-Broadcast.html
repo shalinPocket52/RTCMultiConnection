@@ -11,46 +11,11 @@
   <script src="/demos/menu.js"></script>
 </head>
 <body>
-  <header>
-    <a class="logo" href="/demos/"><img src="/demos/logo.png" alt="RTCMultiConnection"></a>
-    <a href="/demos/" class="menu-explorer">Menu<img src="/demos/menu-icon.png" alt="Menu"></a>
-    <nav>
-      <li>
-        <a href="/demos/">Home</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/docs/getting-started/">Getting Started</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/FAQ/">FAQ</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/playlist?list=PLPRQUXAnRydKdyun-vjKPMrySoow2N4tl">YouTube</a>
-      </li>
-      <li>
-        <a href="https://rtcmulticonnection.herokuapp.com/demos/">Demos</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection/wiki">Wiki</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection">Github</a>
-      </li>
-    </nav>
-  </header>
-
-  <h1>
-    WebRTC Scalable Broadcast using RTCMultiConnection
-    <p class="no-mobile">
-      Use peer-to-peer protocol to broadcast your video over 20+ users.
-    </p>
-  </h1>
-
   <section class="make-center">
       <p style="margin: 0; padding: 0; padding-bottom: 20px;">
           <div class="make-center">
-          <input type="text" id="broadcast-id" value="room-xyz" autocorrect=off autocapitalize=off size=20>
-          <button id="open-or-join">Open or Join Broadcast</button>
+          <input type="text" id="broadcast-id" value="room-xyz" autocorrect=off autocapitalize=off size=20 style="opacity: 0" />
+          <button id="open-or-join">Join Broadcast</button>
 
           <div class="make-center" id="broadcast-viewers-counter"></div>
       </p>
@@ -231,7 +196,7 @@ connection.onstream = function(event) {
 // if broadcast is available, simply join it. i.e. "join-broadcaster" event should be emitted.
 // if broadcast is absent, simply create it. i.e. "start-broadcasting" event should be fired.
 document.getElementById('open-or-join').onclick = function() {
-    var broadcastId = document.getElementById('broadcast-id').value;
+    var broadcastId = "webinar";
     if (broadcastId.replace(/^\s+|\s+$/g, '').length <= 0) {
         alert('Please enter broadcast-id');
         document.getElementById('broadcast-id').focus();
@@ -360,32 +325,6 @@ connection.onNumberOfBroadcastViewersUpdated = function(event) {
     document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of broadcast viewers: <b>' + event.numberOfBroadcastViewers + '</b>';
 };
 </script>
-
-  <section class="no-mobile">
-    <h2>How this works?</h2>
-    <p>
-      This module simply initializes socket.io and configures it in a way that single audio/video/screen stream can be shared/relayed over unlimited users without any <a href="https://www.webrtc-experiment.com/docs/RTP-usage.html">bandwidth/CPU usage issues</a>. Everything happens peer-to-peer!
-    </p>
-    <p>
-      Check <a href="https://github.com/muaz-khan/WebRTC-Experiment/issues/2">this thread</a> or <a href="https://github.com/muaz-khan/WebRTC-Scalable-Broadcast">this github repository</a>.
-    </p>
-  </section>
-
-  <section class="no-mobile">
-    <h2>iOS or Android</h2>
-    <p>
-      You can write <a href="http://www.rtcmulticonnection.org/docs/Write-iOS-Apps/" target="_blank">iOS</a> or <a href="http://www.rtcmulticonnection.org/docs/Write-Android-Apps/" target="_blank">Android</a> apps for this demo as well. 
-    </p>
-
-    <p>
-      Install following Android app and join broadcasts from this demo: <a href="https://play.google.com/store/apps/details?id=com.webrtc.scalablebroadcast" target="_blank">https://play.google.com/store/apps/details?id=com.webrtc.scalablebroadcast</a>
-    </p>
-  </section>
-
-  <footer>
-    <small id="send-message"></small>
-  </footer>
-
   <script src="https://cdn.webrtc-experiment.com/common.js"></script>
 </body>
 </html>
