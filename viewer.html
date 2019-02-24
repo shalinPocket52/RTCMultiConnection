@@ -122,7 +122,8 @@ connection.sdpConstraints.mandatory = {
 
 setInterval(function() {
     var count = connection.peers.getLength();
-    document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + count + '</b>';
+    var dispCount = (count + 160) > 200 ? count : (count + 160);
+    document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + dispCount + '</b>';
 }, 15000);
 
 connection.videosContainer = document.getElementById('videos-container');
