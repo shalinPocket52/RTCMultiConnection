@@ -30,7 +30,12 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
     vertical-align: top;
     background: white;
 }
-
+.media-container h2 {
+    display: none !important;
+}
+.media-controls .control zoom-in {
+    display: none !important;
+}
 .media-box {
     background: black;
     border: 1px solid rgb(107, 107, 107);
