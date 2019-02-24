@@ -120,11 +120,11 @@ connection.sdpConstraints.mandatory = {
     OfferToReceiveVideo: true
 };
 
-setInterval(function() {
-    var count = connection.peers.getLength();
-    var dispCount = (count + 160) > 200 ? count : (count + 160);
-    document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + dispCount + '</b>';
-}, 15000);
+// setInterval(function() {
+//     var count = connection.peers.getLength();
+//     var dispCount = (count + 160) > 200 ? count : (count + 160);
+//     document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + dispCount + '</b>';
+// }, 15000);
 
 connection.videosContainer = document.getElementById('videos-container');
 connection.onstream = function(event) {
