@@ -32,7 +32,8 @@
         <p style="margin: 0;padding-bottom: 20px;position: absolute;top: 10px;width: 100%;text-align: center">
           <button id="open-room">Start Streaming</button>
           <button id="btn-removeStream" disabled>Stop Streaming</button>
-          <button id="share-screen" disabled>Share Your Screen</button>
+          <button id="share-screen" disabled>Share Your Screen</button><br/>
+          <span id="broadcast-viewers-counter" style="font-size: 14px;margin: 5px auto;width: 100%; text-align: center;"></span>
         </p>
         <div id="conversation-panel" style="font-size: 14px;text-align: left;max-height: 200px;overflow: scroll"></div>
         <div id="videos-container" style="margin: 20px;width: 65%;"></div>
@@ -238,6 +239,11 @@ connection.onmessage = function(event) {
         return;
     }
 };
+
+setInterval(function() {
+    var count = connection.peers.getLength();
+    document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + count + '</b>';
+}, 15000);
 
 function appendChatMessage(event, checkmark_id) {
     var div = document.createElement('div');

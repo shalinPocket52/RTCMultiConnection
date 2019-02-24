@@ -26,6 +26,7 @@
     <div style="width: 100%;">
         <p style="margin: 0;padding-bottom: 20px;position: absolute;top: 10px;width: 100%;text-align: center">
           <button  id="join-room">Join Webinar</button>
+          <span id="broadcast-viewers-counter" style="font-size: 14px;margin: 5px auto;width: 100%; text-align: center;color: #fff;"></span>
         </p>
         <div id="conversation-panel" style="font-size: 14px;text-align: left;max-height: 200px;overflow: scroll;display: none;"></div>
         <div id="videos-container" style="width: 100%;"></div>
@@ -118,6 +119,11 @@ connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
     OfferToReceiveVideo: true
 };
+
+setInterval(function() {
+    var count = connection.peers.getLength();
+    document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of viewers: <b>' + count + '</b>';
+}, 15000);
 
 connection.videosContainer = document.getElementById('videos-container');
 connection.onstream = function(event) {
